@@ -9,3 +9,5 @@ const promise4 = new Promise((resolve) => setTimeout(resolve, 1000 * Math.floor(
 const promise5 = new Promise((resolve) => setTimeout(resolve,1000 * Math.floor((Math.random()*5)+1))));
 
 promises = [promise1, promise2, promise3,promise4,promise5];
+
+Promise.any(promises).then((value) => console.log(value));
