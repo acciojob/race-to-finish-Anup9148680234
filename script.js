@@ -2,12 +2,21 @@ window.promises = [];
 
 // Do not change the code above this
 // add your promises to the array `promises`
-const promise1 = new Promise((resolve) => setTimeout(resolve, 1000 * Math.floor((Math.random()*5)+1)));
-const promise2 = new Promise((resolve) => setTimeout(resolve, 1000 * Math.floor((Math.random()*5)+1))));
-const promise3 = new Promise((resolve) => setTimeout(resolve,1000 * Math.floor((Math.random()*5)+1))));
-const promise4 = new Promise((resolve) => setTimeout(resolve, 1000 * Math.floor((Math.random()*5)+1))));
-const promise5 = new Promise((resolve) => setTimeout(resolve,1000 * Math.floor((Math.random()*5)+1))));
+const output = document.getElementById('output');
 
-promises = [promise1, promise2, promise3,promise4,promise5];
-
-Promise.any(promises).then((value) => console.log(value));
+// Create an array of 5 promises that resolve with a random time between 1 and 5 seconds
+const promises = [
+  new Promise(resolve => setTimeout(() => resolve(1), Math.floor(Math.random() * 5000) + 1000)),
+  new Promise(resolve => setTimeout(() => resolve(2), Math.floor(Math.random() * 5000) + 1000)),
+  new Promise(resolve => setTimeout(() => resolve(3), Math.floor(Math.random() * 5000) + 1000)),
+  new Promise(resolve => setTimeout(() => resolve(4), Math.floor(Math.random() * 5000) + 1000)),
+  new Promise(resolve => setTimeout(() => resolve(5), Math.floor(Math.random() * 5000) + 1000))
+];
+()
+Promise.any(promises)
+  .then(result => {
+    output.textContent = `The first promise that resolved returned ${result}.`;
+  })
+  .catch(error => {
+    console.error(error);
+  });
