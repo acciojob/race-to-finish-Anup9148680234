@@ -5,7 +5,7 @@ window.promises = [];
 const output = document.getElementById('output');
 
 // Create an array of 5 promises that resolve with a random time between 1 and 5 seconds
-const promises = [
+promises = [
   new Promise(resolve => setTimeout(() => resolve(1), Math.floor(Math.random() * 5000) + 1000)),
   new Promise(resolve => setTimeout(() => resolve(2), Math.floor(Math.random() * 5000) + 1000)),
   new Promise(resolve => setTimeout(() => resolve(3), Math.floor(Math.random() * 5000) + 1000)),
