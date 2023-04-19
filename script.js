@@ -15,7 +15,7 @@ promises = [
 
 Promise.any(promises)
   .then(result => {
-    output.innerText = `The first promise that resolved returned ${result}.`;
+    output.innerText = `${result}`;
   })
   .catch(error => {
     console.error(error);
