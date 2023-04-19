@@ -2,7 +2,7 @@ window.promises = [];
 
 // Do not change the code above this
 // add your promises to the array `promises`
-const output = document.getElementById('output');
+const out = document.getElementById('output');
 
 // Create an array of 5 promises that resolve with a random time between 1 and 5 seconds
 promises = [
@@ -12,10 +12,10 @@ promises = [
   new Promise(resolve => setTimeout(() => resolve(4), Math.floor(Math.random() * 5000) + 1000)),
   new Promise(resolve => setTimeout(() => resolve(5), Math.floor(Math.random() * 5000) + 1000))
 ];
-()
+
 Promise.any(promises)
   .then(result => {
-    output.textContent = `The first promise that resolved returned ${result}.`;
+    output.innerText = `The first promise that resolved returned ${result}.`;
   })
   .catch(error => {
     console.error(error);
